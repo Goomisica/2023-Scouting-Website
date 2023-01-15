@@ -61,106 +61,109 @@
 
 
 
-
-
-
-
-
-
-
-
-                <div class="d-flex justify-content-around">
+                <div class="d-flex justify-content-center">
                     <div style="width: 8rem;">
                         <p></p>
                     </div>
                     <div style="width: 4rem;">
                         <p>Cube</p>
                     </div>
+                    <div style="width: 12rem;"></div>
                         <p>Cone</p>
                 </div>
 
 
-            <div class="d-flex justify-content-around">
+                <div class="d-flex justify-content-center">
+                    <div style="width:9rem">
+                        <p></p>
+                    </div>
+                    <p id="autonHighCubeCounter">0</p>
+                    <div style="width: 9rem;"></div>
+                    <p id="autonHighConeCounter">0</p>
+                </div>
+    
+                <div class="d-flex justify-content-center">
+                    <div style="width: 2rem;">
+                        <p>High</p>
+                    </div>
+                    <div style="width: 5rem;"></div>
+                    <div>
+                        <button onclick="adjustDisplay(1,'autonHighCubeCounter')" type="button" class="btn btn-primary">+</button>
+                        <button onclick="adjustDisplay(-1, 'autonHighCubeCounter')" type="button" class="btn btn-danger">-</button>
+                    </div>
+                    <div style="width: 6rem;"></div>
+                    <div>
+                        <button onclick="adjustDisplay(1, 'autonHighConeCounter')" type="button" class="btn btn-primary">+</button>
+                        <button onclick="adjustDisplay(-1, 'autonHighConeCounter')" type="button" class="btn btn-danger">-</button>
+                    </div>
+                </div>
+
+
+
+
+
+            <div class="d-flex justify-content-center">
                 <div style="width:6rem">
                     <p></p>
                 </div>
-                <p>0</p>
-                <p>0</p>
+                <p id="autonMediumCubeCounter">0</p>
+                <div style="width: 12rem;"></div>
+                <p id="autonMediumConeCounter">0</p>
             </div>
 
-
-            <div class="d-flex justify-content-around">
-                <div style="width: 10rem;">
-                    <p>Low</p>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-primary">+</button>
-                    <button type="button" class="btn btn-danger">-</button>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-primary">+</button>
-                    <button type="button" class="btn btn-danger">-</button>
-                </div>
-            </div>
-            
-
-            <div></div>
-
-
-            <div class="d-flex justify-content-around">
-                <div style="width:6rem">
-                    <p></p>
-                </div>
-                <p>0</p>
-                <p>0</p>
-            </div>
-
-            <div class="d-flex justify-content-around">
+            <div class="d-flex justify-content-center">
                 <div style="width: 10rem;">
                     <p>Medium</p>
                 </div> 
                 <div>
-                    <button type="button" class="btn btn-primary">+</button>
-                    <button type="button" class="btn btn-danger">-</button>
+                    <button onclick="adjustDisplay(1,'autonMediumCubeCounter')" type="button" class="btn btn-primary">+</button>
+                    <button onclick="adjustDisplay(-1,'autonMediumCubeCounter')" type="button" class="btn btn-danger">-</button>
                 </div>
+                <div style="width: 6rem;"></div>
                 <div>
-                    <button type="button" class="btn btn-primary">+</button>
-                    <button type="button" class="btn btn-danger">-</button>
+                    <button onclick="adjustDisplay(1,'autonMediumConeCounter')" type="button" class="btn btn-primary">+</button>
+                    <button onclick="adjustDisplay(-1,'autonMediumConeCounter')" type="button" class="btn btn-danger">-</button>
                 </div>
             </div>
 
             
-            <div class="d-flex justify-content-around">
+            <div class="d-flex justify-content-center">
                 <div style="width:6rem">
                     <p></p>
                 </div>
-                <p>0</p>
-                <p>0</p>
+                <p id="autonLowCubeCounter">0</p>
+                <div style="width: 12rem;"></div>
+                <p id="autonLowConeCounter">0</p>
             </div>
 
-            <div class="d-flex justify-content-around">
+
+            <div class="d-flex justify-content-center">
                 <div style="width: 10rem;">
-                    <p>High</p>
+                    <p>Low</p>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-primary">+</button>
-                    <button type="button" class="btn btn-danger">-</button>
+                    <button onclick="adjustDisplay(1,'autonLowCubeCounter')" type="button" class="btn btn-primary">+</button>
+                    <button onclick="adjustDisplay(-1,'autonLowCubeCounter')" type="button" class="btn btn-danger">-</button>
                 </div>
+                <div style="width: 6rem;"></div>
                 <div>
-                    <button type="button" class="btn btn-primary">+</button>
-                    <button type="button" class="btn btn-danger">-</button>
+                    <button onclick="adjustDisplay(1,'autonLowConeCounter')" type="button" class="btn btn-primary">+</button>
+                    <button onclick="adjustDisplay(-1,'autonLowConeCounter')" type="button" class="btn btn-danger">-</button>
                 </div>
             </div>
+            
+
+            
 
             <div class="d-flex justify-content-around mt-5">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="autonDockedCheckbox">
+                    <input onclick="autonEnableEngagedClickable()" class="form-check-input" type="checkbox" value="" id="autonDockedCheckbox">
                     <label class="form-check-label" for="autonDockedCheckbox">
                     Docked
                     </label>
                 </div>
                 <div class="form-check">
-                    <input onclick="autonEnableEngagedClickable()" class="form-check-input" type="checkbox" value="" id="autonEngagedCheckbox">
+                    <input class="form-check-input" type="checkbox" value="" id="autonEngagedCheckbox" disabled>
                     <label class="form-check-label" for="autonEngagedCheckbox">
                     Engaged
                     </label>
@@ -264,12 +267,12 @@
             <div class="text-center">
                 <span id="driverPointsTotal">0</span> Driver Control Points
                 <div class="mb-1">
-                    <button onclick="adjustPoints(1,'driverPointsTotal')" class="btn btn-primary">Add Block</button>
-                    <button onclick="adjustPoints(-1,'driverPointsTotal')" class="btn btn-danger">Remove Block</button>
+                    <button onclick="adjustDislpay(1,'driverPointsTotal')" class="btn btn-primary">Add Block</button>
+                    <button onclick="adjustDislpay(-1,'driverPointsTotal')" class="btn btn-danger">Remove Block</button>
                 </div>
                 <div class="mb-1">
-                    <button onclick="adjustPoints(2,'driverPointsTotal')" class="btn btn-primary">Add Cone</button>
-                    <button onclick="adjustPoints(-2,'driverPointsTotal')" class="btn btn-danger">Remove Cone</button>
+                    <button onclick="adjustDislpay(2,'driverPointsTotal')" class="btn btn-primary">Add Cone</button>
+                    <button onclick="adjustDislpay(-2,'driverPointsTotal')" class="btn btn-danger">Remove Cone</button>
                 </div>
             </div>
             </p>
@@ -318,27 +321,32 @@
                 team = JSON.parse(data);
             }
 
-            function adjustPoints(amt,pointTarget) {
+            function adjustDisplay(amt,pointTarget) {
                 const pointsTotalField = document.getElementById(pointTarget);
-                const pointsTotal = Number(pointsTotalField.innerText);
-                if (pointsTotal + amt < 0) [
-                    pointsTotalField.innerText = 0,
-                ]
-                else
-                [
-                    pointsTotalField.innerText = pointsTotal + amt,
-                ]
+                let pointsTotalArr = String(pointsTotalField.innerText);
+                let pointsTotalArr2 = pointsTotalArr.split(" ");
+                const pointsTotal = Number(pointsTotalArr2[0]);
+                if (pointsTotal + amt < 0) {
+                    pointsTotalField.innerText = 0; 
+                }
+                else {
+                    pointsTotalField.innerText = pointsTotal + amt;
+                }
             }
 
             function autonEnableEngagedClickable() {
                 let dockedCheckbox = document.getElementById("autonDockedCheckbox");
-                let 
-                if (dockedCheckbox.hasAttribute("checked"))
+                let engagedCheckbox = document.getElementById("autonEngagedCheckbox");
+                if (dockedCheckbox.checked)
                 {
-
+                    engagedCheckbox.removeAttribute("disabled");
                 }
                 else {
-
+                    engagedCheckbox.setAttribute("disabled", "");
+                    if (engagedCheckbox.checked)
+                    {
+                        engagedCheckbox.checked = false;
+                    }
                 }
             }
 

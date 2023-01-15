@@ -187,12 +187,15 @@
                 </div>
             </div>
 
-            <div class="btn-group mt-5" role="group" aria-label="autonWinnerRadio">
+            <div class="mt-5 d-flex justify-content-center">
+                <label for="autonWinnerRadio">Who won Auton?</label>
+            </div>
+            <div class="btn-group" role="group" aria-label="autonWinnerRadio">
                 <input type="radio" class="btn-check" name="btnradio" id="autonRadioBlueWin" autocomplete="off" checked>
                 <label class="btn btn-outline-primary" for="autonRadioBlueWin">Blue</label>
                 
-                <input type="radio" class="btn-check" name="btnradio" id="autonRadioQuestion" autocomplete="off" disabled>
-                <label class="btn btn-outline-dark" for="autonRadioQuestion">Auton Winner?</label>
+                <input type="radio" class="btn-check" name="btnradio" id="autonTieRadio" autocomplete="off">
+                <label id="autonTieRadioButton" class="btn btn-outline-dark" for="autonTieRadio">Tie</label>
                 
                 <input type="radio" class="btn-check" name="btnradio" id="autonRadioRedWin" autocomplete="off">
                 <label class="btn btn-outline-danger" for="autonRadioRedWin">Red</label>
@@ -423,15 +426,19 @@
             })
             
             function toggleDarkMode() {
+                const autonRadioToChange = document.getElementById("autonTieRadioButton");
                 const darkModeSwitch = document.getElementById("darkModeSwitch");
                 let htmlElement = document.getElementById("background");
                 if (darkModeSwitch.checked)
                 {
                     htmlElement.setAttribute("data-bs-theme", "dark");
+                    autonRadioToChange.setAttribute("class", "btn btn-outline-light");
+                    
                 }
                 else
                 {
                     htmlElement.removeAttribute("data-bs-theme");
+                    autonRadioToChange.setAttribute("class", "btn btn-outline-dark");
                 }
             }
 

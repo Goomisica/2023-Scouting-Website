@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id= "background">
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -10,7 +10,14 @@
 </head>
 
 <body>
-    <h1>Match Scoring</h1>
+        <div onclick ="toggleDarkMode()" class="d-inline form-check form-switch d-flex justify-content-end">
+            <input class="d-inline form-check-input" type="checkbox" role="switch" id="darkModeSwitch">
+            <label class="d-inline form-check-label" for="darkModeSwitch">Dark mode (rough)</label>
+        </div>
+        <h1>Match Scoring</h1> 
+
+    
+
     <!--start with an input area to enter the team number and the match number-->
    
     <label for="teamNumber">Team Number:</label>
@@ -24,9 +31,6 @@
            minlength="1" maxlength="2" size="4">
     <div class="mb-1">
         <button onclick="saveMatch()" class="btn btn-primary">Save</button>
-     </div>
-      <div class="mb-1">
-        <button onclick="loadMatch()" class="btn btn-danger">Load</button>
      </div>
 
        
@@ -60,6 +64,11 @@
             <div class="text-center">
 
 
+                <div class="d-flex justify-content-center">
+                    <div class="w-50">
+                        <span id="autonPointsTotal">0</span><span> Autonomous Control Points</span>
+                    </div>
+                </div>
 
                 <div class="d-flex justify-content-center">
                     <div style="width: 5rem;">
@@ -77,9 +86,9 @@
                     <div style="width:6rem">
                         <p></p>
                     </div>
-                    <p id="autonHighCubeCounter">0</p>
+                    <p id="autonCubeHighTotal">0</p>
                     <div style="width: 10rem;"></div>
-                    <p id="autonHighConeCounter">0</p>
+                    <p id="autonConeHighTotal">0</p>
                 </div>
     
                 <div class="d-flex justify-content-center">
@@ -88,13 +97,13 @@
                     </div>
                     <div style="width: 5rem;"></div>
                     <div>
-                        <button onclick="adjustDisplay(1,'autonHighCubeCounter')" type="button" class="btn btn-primary">+</button>
-                        <button onclick="adjustDisplay(-1, 'autonHighCubeCounter')" type="button" class="btn btn-danger">-</button>
+                        <button onclick="adjustDisplay(1,'autonCubeHighTotal')" type="button" class="btn btn-primary">+</button>
+                        <button onclick="adjustDisplay(-1, 'autonCubeHighTotal')" type="button" class="btn btn-danger">-</button>
                     </div>
                     <div style="width: 6rem;"></div>
                     <div>
-                        <button onclick="adjustDisplay(1, 'autonHighConeCounter')" type="button" class="btn btn-primary">+</button>
-                        <button onclick="adjustDisplay(-1, 'autonHighConeCounter')" type="button" class="btn btn-danger">-</button>
+                        <button onclick="adjustDisplay(1, 'autonConeHighTotal')" type="button" class="btn btn-primary">+</button>
+                        <button onclick="adjustDisplay(-1, 'autonConeHighTotal')" type="button" class="btn btn-danger">-</button>
                     </div>
                 </div>
 
@@ -106,9 +115,9 @@
                 <div style="width:6rem">
                     <p></p>
                 </div>
-                <p id="autonMediumCubeCounter">0</p>
+                <p id="autonCubeMidTotal">0</p>
                 <div style="width: 10rem;"></div>
-                <p id="autonMediumConeCounter">0</p>
+                <p id="autonConeMidTotal">0</p>
             </div>
 
             <div class="d-flex justify-content-center">
@@ -117,13 +126,13 @@
                 </div> 
                 <div style="width: 5rem;"></div>
                 <div>
-                    <button onclick="adjustDisplay(1,'autonMediumCubeCounter')" type="button" class="btn btn-primary">+</button>
-                    <button onclick="adjustDisplay(-1,'autonMediumCubeCounter')" type="button" class="btn btn-danger">-</button>
+                    <button onclick="adjustDisplay(1,'autonCubeMidTotal')" type="button" class="btn btn-primary">+</button>
+                    <button onclick="adjustDisplay(-1,'autonCubeMidTotal')" type="button" class="btn btn-danger">-</button>
                 </div>
                 <div style="width: 6rem;"></div>
                 <div>
-                    <button onclick="adjustDisplay(1,'autonMediumConeCounter')" type="button" class="btn btn-primary">+</button>
-                    <button onclick="adjustDisplay(-1,'autonMediumConeCounter')" type="button" class="btn btn-danger">-</button>
+                    <button onclick="adjustDisplay(1,'autonConeMidTotal')" type="button" class="btn btn-primary">+</button>
+                    <button onclick="adjustDisplay(-1,'autonConeMidTotal')" type="button" class="btn btn-danger">-</button>
                 </div>
             </div>
 
@@ -132,9 +141,9 @@
                 <div style="width:6rem">
                     <p></p>
                 </div>
-                <p id="autonLowCubeCounter">0</p>
+                <p id="autonCubeLowTotal">0</p>
                 <div style="width: 10rem;"></div>
-                <p id="autonLowConeCounter">0</p>
+                <p id="autonConeLowTotal">0</p>
             </div>
 
 
@@ -144,13 +153,13 @@
                 </div>
                 <div style="width: 5rem;"></div>
                 <div>
-                    <button onclick="adjustDisplay(1,'autonLowCubeCounter')" type="button" class="btn btn-primary">+</button>
-                    <button onclick="adjustDisplay(-1,'autonLowCubeCounter')" type="button" class="btn btn-danger">-</button>
+                    <button onclick="adjustDisplay(1,'autonCubeLowTotal')" type="button" class="btn btn-primary">+</button>
+                    <button onclick="adjustDisplay(-1,'autonCubeLowTotal')" type="button" class="btn btn-danger">-</button>
                 </div>
                 <div style="width: 6rem;"></div>
                 <div>
-                    <button onclick="adjustDisplay(1,'autonLowConeCounter')" type="button" class="btn btn-primary">+</button>
-                    <button onclick="adjustDisplay(-1,'autonLowConeCounter')" type="button" class="btn btn-danger">-</button>
+                    <button onclick="adjustDisplay(1,'autonConeLowTotal')" type="button" class="btn btn-primary">+</button>
+                    <button onclick="adjustDisplay(-1,'autonConeLowTotal')" type="button" class="btn btn-danger">-</button>
                 </div>
             </div>
             
@@ -306,13 +315,13 @@
 
          <!--Match Results page-->
          <!-- This shows the final results of the match from Blue Alliance. It includes all the teams in the match, and the official results. It also includes all of the data we have collected on the match-->
-        <div class="tab-pane fade" id="pills-team">
+        <div class="tab-pane fade" id="pills-match-tab">
             <h3>Match Results Page</h3>
-            <p>
+
             <div class="text-center">
                 <span id="matchResults">Match Results Page</span>
             </div>
-            </p>
+
         </div>
 
         <script>
@@ -348,6 +357,36 @@
                 else {
                     pointsTotalField.innerText = pointsTotal + amt;
                 }
+                //driverTotalPointsCalc();
+                autonTotalPointsCalc();
+            }
+
+            function driverTotalPointsCalc() {
+                let driverPointsTotalField = document.getElementById("driverPointsTotal");
+                let cubeHighTotal = document.getElementById('driverCubeHighTotal');
+                let cubeMidTotal = document.getElementById('driverCubeMidTotal');
+                let cubeLOWTotal = document.getElementById('driverCubeLowTotal');
+                let coneHighTotal = document.getElementById('driverConeHighTotal');
+                let coneMidTotal = document.getElementById('driverConeMidTotal');
+                let coneLOWTotal = document.getElementById('driverConeLowTotal');
+                let driverHighTotal = Number(cubeHighTotal.innerText) + Number(coneHighTotal.innerText);
+                let driverMidTotal = Number(cubeMidTotal.innerText) + Number(coneMidTotal.innerText);
+                let driverLowTotal = Number(cubeLOWTotal.innerText) + Number(coneLOWTotal.innerText);
+                driverPointsTotalField.innerText = (driverHighTotal * 5) + (driverMidTotal * 3) + (driverLowTotal * 2);
+            }
+
+            function autonTotalPointsCalc() {
+                let autonPointsTotalField = document.getElementById("autonPointsTotal");
+                let cubeHighTotal = document.getElementById('autonCubeHighTotal');
+                let coneHighTotal = document.getElementById('autonConeHighTotal');
+                let cubeMidTotal = document.getElementById('autonCubeMidTotal');
+                let coneMidTotal = document.getElementById('autonConeMidTotal');
+                let cubeLowTotal = document.getElementById('autonCubeLowTotal');
+                let coneLowTotal = document.getElementById('autonConeLowTotal');
+                let autonHighTotal = Number(cubeHighTotal.innerText) + Number(coneHighTotal.innerText);
+                let autonMidTotal = Number(cubeMidTotal.innerText) + Number(coneMidTotal.innerText);
+                let autonLowTotal = Number(cubeLowTotal.innerText) + Number(coneLowTotal.innerText);
+                autonPointsTotalField.innerText = (autonHighTotal * 5) + (autonMidTotal * 3) + (autonLowTotal * 2);
             }
 
             function autonEnableEngagedClickable() {
@@ -366,37 +405,41 @@
                 }
             }
 
+
             let lastKeysPressed = [0,0,0,0];
             document.getElementById("autonRadioBlueWin").addEventListener("keydown", () => {
                 lastKeysPressed[3] = lastKeysPressed[2];
                 lastKeysPressed[2] = lastKeysPressed[1];
                 lastKeysPressed[1] = lastKeysPressed[0];
-                lastKeysPressed[0] = event.key
-                
-
+                lastKeysPressed[0] = event.key;
                 if (lastKeysPressed[3] == 1 && lastKeysPressed[2] == 1 && lastKeysPressed[1] == 3 && lastKeysPressed[0] == 8)
                 {
                     window.location.href = "https://youtu.be/dQw4w9WgXcQ";
                 }
+                if (lastKeysPressed[3] == 1 && lastKeysPressed[2] == 1 && lastKeysPressed[1] == 3 && lastKeysPressed[0] == 9)
+                {
+                    window.location.href = "https://i.kym-cdn.com/photos/images/newsfeed/001/996/641/bc2.jpg";
+                }
             })
+            
+            function toggleDarkMode() {
+                const darkModeSwitch = document.getElementById("darkModeSwitch");
+                let htmlElement = document.getElementById("background");
+                if (darkModeSwitch.checked)
+                {
+                    htmlElement.setAttribute("data-bs-theme", "dark");
+                }
+                else
+                {
+                    htmlElement.removeAttribute("data-bs-theme");
+                }
+            }
 
             function saveMatch()
             {
                 const matchNumber = Number(document.getElementById("matchNumber").value);
 
                 team.matches.push({
-                match: matchNumber,
-                matchAutonPoints:0,
-                matchDriverPoints:0,
-                matchDefenseRating:0
-                });
-            }
-
-               function LoadMatch()
-            {
-                const matchNumber = Number(document.getElementById("matchNumber").value);
-
-                team.matches.pull({
                 match: matchNumber,
                 matchAutonPoints:0,
                 matchDriverPoints:0,

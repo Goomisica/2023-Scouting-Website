@@ -179,19 +179,19 @@
             </div>
 
             <div class="btn-group mt-5" role="group" aria-label="autonWinnerRadio">
-                <input type="radio" class="btn-check" name="btnradio" id="autonRadioBlueWin" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="autonRadioBlueWin">Blue</label>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="btnradio1">Blue</label>
                 
-                <input type="radio" class="btn-check" name="btnradio" id="autonRadioQuestion" autocomplete="off" disabled>
-                <label class="btn btn-outline-dark" for="autonRadioQuestion">Auton Winner?</label>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" disabled>
+                <label class="btn btn-outline-dark" for="btnradio2">Auton Winner?</label>
                 
-                <input type="radio" class="btn-check" name="btnradio" id="autonRadioRedWin" autocomplete="off">
-                <label class="btn btn-outline-danger" for="autonRadioRedWin">Red</label>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                <label class="btn btn-outline-danger" for="btnradio3">Red</label>
             </div>
 
             <div class="mt-5">
                 <label for="inputPassword5" class="form-label">Any notes?</label>
-                <input type="text" id="inputPassword5" class="form-control" aria-describedby="textInput">
+                <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
             </div>
 <!--
 
@@ -365,20 +365,6 @@
                     }
                 }
             }
-
-            let lastKeysPressed = [0,0,0,0];
-            document.getElementById("autonRadioBlueWin").addEventListener("keydown", () => {
-                lastKeysPressed[3] = lastKeysPressed[2];
-                lastKeysPressed[2] = lastKeysPressed[1];
-                lastKeysPressed[1] = lastKeysPressed[0];
-                lastKeysPressed[0] = event.key
-                
-
-                if (lastKeysPressed[3] == 1 && lastKeysPressed[2] == 1 && lastKeysPressed[1] == 3 && lastKeysPressed[0] == 8)
-                {
-                    window.location.href = "https://youtu.be/dQw4w9WgXcQ";
-                }
-            })
 
             function saveMatch()
             {
